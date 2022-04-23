@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Blogs = require("../models/blogs");
+const Users = require("../models/users");
 
 
 // Index Route
@@ -14,6 +15,13 @@ router.get("/", (req, res) => {
 router.post("/", (req, res) => {
     Blogs.create(req.body, (err, createdBlog) => {
         res.json(createdBlog);
+    });
+});
+
+// Create User Route
+router.post("/newuser", (req, res) => {
+    Users.create(req, body, (err, createdUser) => {
+        res.json(createdUser);
     });
 });
 
